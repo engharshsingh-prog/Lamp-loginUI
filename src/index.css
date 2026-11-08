@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #08080a;
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism style */
+.glass-panel {
+  background: rgba(18, 18, 22, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7),
+              0 0 40px rgba(250, 204, 21, 0.06),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-input {
+  background: rgba(10, 10, 12, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-input:focus-within,
+.glass-input:focus {
+  background: rgba(18, 18, 22, 0.85);
+  border-color: rgba(250, 204, 21, 0.5);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.2), inset 0 0 10px rgba(250, 204, 21, 0.05);
+}
+
+/* Yellow Lamp Button */
+.btn-lamp {
+  background: linear-gradient(135deg, #fde047 0%, #facc15 50%, #eab308 100%);
+  color: #111113;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(250, 204, 21, 0.35);
+}
+
+.btn-lamp:hover {
+  background: linear-gradient(135deg, #fef08a 0%, #fde047 50%, #facc15 100%);
+  box-shadow: 0 6px 30px rgba(250, 204, 21, 0.6), 0 0 15px rgba(254, 240, 138, 0.8);
+  transform: translateY(-1.5px);
+}
+
+.btn-lamp:active {
+  transform: translateY(0.5px) scale(0.99);
+  box-shadow: 0 2px 12px rgba(250, 204, 21, 0.4);
+}
+
+/* Secondary Social Buttons */
+.btn-social {
+  background: rgba(26, 26, 32, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e4e4e7;
+  transition: all 0.25s ease;
+}
+
+.btn-social:hover {
+  background: rgba(38, 38, 46, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Light cone overlay */
+.light-cone-overlay {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 25% 42%,
+    rgba(250, 204, 21, 0.18) 0%,
+    rgba(245, 158, 11, 0.08) 35%,
+    rgba(217, 119, 6, 0.02) 60%,
+    transparent 80%
+  );
+  mix-blend-mode: screen;
+}
+
+/* Ambient glow when lamp is on */
+.lamp-glow-bloom {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom interactive pull string cursor */
+.cursor-grab-pull {
+  cursor: grab;
+}
+.cursor-grab-pull:active {
+  cursor: grabbing;
+}
+
+/* Floating animation */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 6s ease-in-out infinite;
+}
