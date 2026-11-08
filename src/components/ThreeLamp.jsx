@@ -682,7 +682,7 @@ export default function ThreeLamp({ isLampOn, onToggleLamp, mood, isMobile = fal
         emissiveIntensity: 0.8,
         duration: 0.04,
         onUpdate: () => {
-          bulbMesh.material.emissive.set('#ffea80');
+          bulbMesh.material.emissive.set(activeMood.lightColor);
         }
       })
       .to(bulbMesh.material, { emissiveIntensity: 0.1, duration: 0.03 })
@@ -694,7 +694,10 @@ export default function ThreeLamp({ isLampOn, onToggleLamp, mood, isMobile = fal
         duration: 0.45,
         ease: 'power2.out',
         onStart: () => {
-          bulbMesh.material.emissive.set('#fff6b8');
+          bulbMesh.material.emissive.set(activeMood.bulbColor);
+          bulbLight.color.set(activeMood.lightColor);
+          spotLight.color.set(activeMood.lightColor);
+          coneMesh.material.uniforms.uColor.value.set(activeMood.lightColor);
         }
       }, '+=0.02');
 
